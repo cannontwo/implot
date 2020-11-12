@@ -133,6 +133,8 @@ struct HugeTimeData {
     static const int Size = 60*60*24*366;
 };
 
+#ifndef IMGUI_DISABLE
+
 void ShowDemoWindow(bool* p_open) {
     double DEMO_TIME = ImGui::GetTime();
     static bool show_imgui_metrics       = false;
@@ -1357,6 +1359,13 @@ void ShowDemoWindow(bool* p_open) {
     //-------------------------------------------------------------------------
     ImGui::End();
 }
+
+#else
+
+void ShowDemoWindow(bool* p_open) {}
+
+#endif
+
 
 } // namespace ImPlot
 
